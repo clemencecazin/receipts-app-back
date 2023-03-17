@@ -1,12 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+var cors = require("cors");
 
 const formidable = require("express-formidable");
 
 const app = express();
 
 app.use(formidable());
+app.use(cors());
 
 const userRoutes = require("./routes/user");
 const receiptsRoutes = require("./routes/receipts");
@@ -14,7 +16,7 @@ const receiptsRoutes = require("./routes/receipts");
 app.use(userRoutes);
 app.use(receiptsRoutes);
 
-mongoose.connect("mongodb://localhost:27017/recettes", {
+mongoose.connect("mongodb://127.0.0.1/recettes", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 });

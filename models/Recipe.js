@@ -18,6 +18,7 @@ const Recipe = mongoose.model("Recipe", {
             type: Array,
         },
     },
+    mainRecipe: { Boolean, default: false },
 });
 
 module.exports = Recipe;
